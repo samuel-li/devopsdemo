@@ -17,6 +17,11 @@ pipeline {
                 sh 'echo "Success!"; exit 0'
             }
         }
+        stage('Tests') {
+            steps {
+                sh './helloword.sh'
+            }
+        }
     }
     post {
         always {
