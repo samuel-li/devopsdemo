@@ -14,9 +14,16 @@ pipeline {
                 '''
                 sh 'printenv'
                 sh 'echo $DB_ENGINE'
-                sh 'echo "Success!"; exit 1'
+                sh 'echo "Success!"; exit 0'
             }
         }
+        
+        stage('Sanity check') {
+            steps {
+                input "Confirm to be continue?"
+            }
+        }
+        
         stage('Tests') {
             steps {
                 sh './helloworld.sh'
