@@ -14,7 +14,7 @@ pipeline {
                 '''
                 sh 'printenv'
                 sh 'echo $DB_ENGINE'
-                sh 'echo "Success!"; exit 0'
+                sh 'echo "Success!"; exit 1'
             }
         }
         stage('Tests') {
