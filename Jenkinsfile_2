@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    environment {
+        DISABLE_AUTH = 'true'
+        DB_ENGINE    = 'mysqli'
+    }
     stages {
         stage('Build') {
             steps {
@@ -8,6 +12,8 @@ pipeline {
                     echo "Multiline shell steps works too"
                     ls -lah
                 '''
+                sh 'printenv'
+                sh 'echo $DB_ENGINE'
                 sh 'echo "Success!"; exit 0'
             }
         }
